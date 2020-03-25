@@ -4,6 +4,7 @@
 import express = require("express");
 import mongoose = require("mongoose");
 import cors = require("cors");
+import bodyParser = require('body-parser');
 
 //Import routes
 let studentsRouter = require("./routes/StudentsRoutes"); //variable con la ruta students
@@ -12,6 +13,8 @@ let subjectsRouter = require("./routes/SubjectsRoutes"); //variable con la ruta 
 //Server variable initialization
 let app = express();
 app.use(cors());
+app.use(bodyParser.json()); //para poder enviar json con el POST
+
 app.use('/estudiantes', studentsRouter);   //students
 app.use('/asignaturas', subjectsRouter);   //subjects
 

@@ -28,49 +28,32 @@ async function getStudentfrom (req, res){
         res.status(424).send({message: 'Subjects error'});
     }
 }
-async function hello (req: Request, res:Response){
-    
-    const s_aux: string = req.body.msg;
-    console.log('texto', s_aux);
-    res.status(200).json(s_aux);
-}
-
-async function hello2 (req: Request, res:Response){
-    
-    const s_aux: string = req.params.msg;
-    console.log('texto', s_aux);
-    res.status(200).json(s_aux);
-}
 
  async function putStudentinSubject (req: Request, res:Response){   //añado un alumno a una asignatura
     //si el alumno no existe me da error
-    try{
-    console.log('thola');
-    const s_aux: string = req.body.subject;   //req.body es para post que le paso un json
-    const st_aux: string = req.body.student;
-    console.log('texto', s_aux);
-    console.log('texto',st_aux);
-    
-    console.log('put student in subject', req.body);
-    let subject = req.body.subject;  //me da el subject entero
-    let student = await StudentsSchema.findOne({name: req.body.student.name});  
-    //let studentId = req.body.studentId; 
-    //let studentFound = await StudentsSchema.findById(studentId);  //busca al student por su id
-    //let student = await StudentsSchema.findOne({name: req.body.student.name});
-    if (!student) {
-        return res.status(404).send({message: 'Student not found'})
-    }
-    else{
+    let subjectId = req.body.subject;  //req.body es para post que le paso un json
+    let studentId = req.body.student;
+    console.log(`subject: ${subjectId}, studentID: ${studentId}`);
+    let result = await SubjectsSchema.updateOne({_id: subjectId}, {$addToSet:{students: studentId}})
+    console.log(`subject: ${subjectId}, studentID: ${studentId}`);
+    res.status(200).send(result);
+    res.status(200).send({message: "Student added successfully to the station"})
 
-         let result = await SubjectsSchema.updateOne({name: subject.name}, {$addToSet:{students: ObjectId(student._id)}})
-         res.status(200).send(result);
-         res.status(200).send({message: "Student added successfully to the station"})
-        }
-    }
-    catch(err){
-         console.log(err);
-         res.status(500).send(err)
-    }
+    // let studentFound = await StudentsSchema.findById(studentId);
+    // console.log(studentFound);  //para buscar si existe o no, de momento no lo implemento
+
+
+    // if (!studentFound) {
+    //     console.log('Student not found');
+    //     return res.status(404).send({message: 'Student not found'})
+    // }
+    // else{
+
+    //     let result = await SubjectsSchema.updateOne({_id: subjectId}, {$addToSet:{students: studentId}})
+    //     console.log(`subject: ${subjectId}, studentID: ${studentId}`);
+    //     res.status(200).send(result);
+    //     res.status(200).send({message: "Student added successfully to the station"})
+    //     }
 }
 
 async function getStudentDetails (req, res){   //ver detalle de un alumno dentro de una asignatura
@@ -85,6 +68,19 @@ async function getStudentDetails (req, res){   //ver detalle de un alumno dentro
     } catch(err) {
         res.status(500).send(err);
     }
+}
+async function hello (req: Request, res:Response){ //IGNORAR ERA SOLO PARA PROBAR
+    
+    const s_aux: string = req.body.msg;
+    console.log('texto', s_aux);
+    res.status(200).json(s_aux);
+}
+
+async function hello2 (req: Request, res:Response){  //IGNORAR ERA SOLO PARA PROBAR
+    
+    const s_aux: string = req.params.msg;
+    console.log('texto', s_aux);
+    res.status(200).json(s_aux);
 }
 
 // async function getStudentEA (req, res){

@@ -16,7 +16,7 @@ https://www.idqweb.com/mongodb-comandos-basicos/
 
 el save sirve para cambiar con un id o actualizar y si no hay id te lo crea. tiene el insert y el update juntos. el insert es solo para insertar
 
-db.Subjects.save({name:"IOT",students:[ObjectId("5e6cf9b1f88a8f37898e41b3")]})
+db.Subjects.save({name:"IOT",students:[ObjectId("5e7206f3ffbedba70cb5f153")]})
 
 db.Students.save({name:"Juan",address:"calle 2",phones:[{home:"1234"},{work:"4321"}],studies:["Telematica","Sistemas"]})
 
