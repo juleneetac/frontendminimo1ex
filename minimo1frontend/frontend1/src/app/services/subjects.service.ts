@@ -11,6 +11,7 @@ import { Modelmodify } from '../models/modelmodify';
 })
 export class SubjectsService {
   ambiente: Ambiente;           //no se lo que hace pero se tiene que poner
+  addstsub: Modelmodify;   //añadir si se usa
 
   constructor(private http: HttpClient) {
     this.ambiente = new Ambiente();

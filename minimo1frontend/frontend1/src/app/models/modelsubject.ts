@@ -1,6 +1,6 @@
 import {Modelstudent} from "./modelstudent";
 
 export class Modelsubject {
-    name: String;
+    name: string;
     students: [Modelstudent];
 }

@@ -16,6 +16,8 @@ export class StudentsComponent implements OnInit {
   students: Modelstudent[];
   studentaddsub: Modelstudent;
   
+  selstu: string;  //son para seleccionar con ngmodel en el selected list
+  selsub: string;
   student1: Modelstudent;
   subject1: Modelsubject;
 
@@ -27,18 +29,20 @@ export class StudentsComponent implements OnInit {
 
   ngOnInit() {
     this.getSubjects();
+    this.selstu = "";
+    this.selsub = "";
     this.getStudents();
 
   }
 
-  addtosubj(idstu: string, idsub: string){
+  public addtosubj(idstu: string, idsub: string){
     let modify = new Modelmodify(idstu, idsub);
     this.subjectService.putStudentinSubject(modify)
       .subscribe(
-        res => {
+        (res) => {
           console.log(res);
         },
-        err => {
+        (err) => {
           console.log(err);
         });
        // window.location.reload();

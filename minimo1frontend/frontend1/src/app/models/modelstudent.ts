@@ -1,15 +1,14 @@
 
 export class Modelstudent {
-    _id:string;
-    name: String;
-    address: String;
+    name: string;
+    address: string;
     phones: [
       {
-        home: String;
-        work: String;
+        home: string;
+        work: string;
       }
     ]
-    studies : [String];
+    studies : [string];
     constructor(name = '', address = '', description = ''){
       this.name = name;
       this.address = address;
