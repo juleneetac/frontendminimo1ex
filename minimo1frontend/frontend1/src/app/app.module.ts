@@ -8,6 +8,9 @@ import { SubjectsComponent } from './components/subjects/subjects.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MatListModule} from "@angular/material/list";
 import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
+import { FormControl, FormControlName, FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -18,9 +21,12 @@ import {MatButtonModule} from "@angular/material/button";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatListModule,
+    MatListModule,  //añadirlo para el maplist a la hora de hacer un ngfor
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

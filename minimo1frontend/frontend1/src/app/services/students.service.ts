@@ -15,5 +15,12 @@ export class StudentsService {
     this.ambiente = new Ambiente();
   }
 
+  getStudent(_id:string): Observable<Modelstudent>{  //no es un array porque es solo una asignatura lo que le paso
+    return this.http.get<Modelstudent>(this.ambiente.urlStudent+'/getStudent'+ `/${_id}`);
+    }
+  getStudents(): Observable<Modelstudent[]>{  //esto es el observable. me da un array de studnets
+      return this.http.get<Modelstudent[]>(this.ambiente.urlStudent + '/getStudents');  
+      }
+
   
 }

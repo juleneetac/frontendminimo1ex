@@ -1,1 +1,23 @@
-<p>students works!</p>
+
+<form name="formulario" >
+  <p>
+  <label >Asignaturas: </label>
+  <select name="listasubjects" [(ngModel)]="subject1">
+      <option *ngFor="let subject of subjects" >
+        {{subject.name}}
+      </option>
+    </select>
+    <label>Seleccionaste: {{subject1._id}}</label>
+  </p>
+  <p>
+    <label >Estuciantes: </label>
+    <select name="listastudents" [(ngModel)]="student1">
+      <option *ngFor="let student of students">
+        {{student.name}}
+      </option>
+    </select>
+    <label>Seleccionaste: {{student1._id}}</label>
+  </p>
+    
+  <button  type="submit" >Add to subject</button>
+</form>

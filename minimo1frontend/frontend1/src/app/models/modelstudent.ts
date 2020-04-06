@@ -1,5 +1,6 @@
 
 export class Modelstudent {
+    _id:string;
     name: String;
     address: String;
     phones: [
@@ -9,4 +10,8 @@ export class Modelstudent {
       }
     ]
     studies : [String];
+    constructor(name = '', address = '', description = ''){
+      this.name = name;
+      this.address = address;
+    }
 }
