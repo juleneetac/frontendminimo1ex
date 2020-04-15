@@ -69,19 +69,19 @@ async function getStudentDetails (req, res){   //ver detalle de un alumno dentro
         res.status(500).send(err);
     }
 }
-async function hello (req: Request, res:Response){ //IGNORAR ERA SOLO PARA PROBAR
+// async function hello (req: Request, res:Response){ //IGNORAR ERA SOLO PARA PROBAR
     
-    const s_aux: string = req.body.msg;
-    console.log('texto', s_aux);
-    res.status(200).json(s_aux);
-}
+//     const s_aux: string = req.body.msg;
+//     console.log('texto', s_aux);
+//     res.status(200).json(s_aux);
+// }
 
-async function hello2 (req: Request, res:Response){  //IGNORAR ERA SOLO PARA PROBAR
+// async function hello2 (req: Request, res:Response){  //IGNORAR ERA SOLO PARA PROBAR
     
-    const s_aux: string = req.params.msg;
-    console.log('texto', s_aux);
-    res.status(200).json(s_aux);
-}
+//     const s_aux: string = req.params.msg;
+//     console.log('texto', s_aux);
+//     res.status(200).json(s_aux);
+// }
 
 // async function getStudentEA (req, res){
 //     let subject = await SubjectsSchema.findOne({name:'EA'}).populate('students', 'name'); 
@@ -95,4 +95,4 @@ async function hello2 (req: Request, res:Response){  //IGNORAR ERA SOLO PARA PRO
 // }
 
 
-module.exports = {getSubjects, getStudentfrom, putStudentinSubject, getStudentDetails, hello, hello2};
+module.exports = {getSubjects, getStudentfrom, putStudentinSubject, getStudentDetails};

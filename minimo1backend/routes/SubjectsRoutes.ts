@@ -9,7 +9,7 @@ router.get('/subjectDetail/:subjectId', subjectsControl.getStudentfrom); // ver 
 router.post('/addStudentsubj', subjectsControl.putStudentinSubject); //añadir alumno a una asignatura
 router.get('/getStudentdet/:studentId', subjectsControl.getStudentDetails);  ////ver detalle de un alumno dentro de una asignatura
 
-router.put('/addhello', subjectsControl.hello); //IGNORAR ERA SOLO PARA PROBAR
-router.get('/gethello/:msg', subjectsControl.hello2);  //IGNORAR ERA SOLO PARA PROBAR
+//router.put('/addhello', subjectsControl.hello); //IGNORAR ERA SOLO PARA PROBAR
+//router.get('/gethello/:msg', subjectsControl.hello2);  //IGNORAR ERA SOLO PARA PROBAR
 
 module.exports = router;

@@ -8,6 +8,7 @@ router.get('/getStudents/:studiesName', studentsControl.getStudentsOf);  //me da
 router.get('/getStudent/:studentId', studentsControl.getStudent);  //datos de un studiante en concreto
 router.get('/getStudents', studentsControl.getStudents)
 router.post('/addStudent', studentsControl.postStudent);   
+
 //router.get('/getSis', studentsControl.getStudentsS);  //se pueden quitar
 //router.get('/getTel', studentsControl.getStudentsT);  //se pueden quitar
 //router.get('/getAer', studentsControl.getStudentsA);  //se pueden quitar

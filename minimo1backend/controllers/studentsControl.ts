@@ -6,17 +6,29 @@ let StudentSchema = require('../models/Students');
 //const ObjectId = require('mongodb').ObjectID;
 
 
-async function postStudent (req, res) {    //añadir alumno
-    let student = new StudentSchema(req.body);
-    console.log(student);
-    try {
-        await student.save();
-        res.status(200).send({message: "Student created successfully"})
-    } catch (err) {
-        res.status(500).send(err);
-        console.log(err);
+async function postStudent (req, res){  //registrarse un usuario si el usuario ya existe da error
+    let student = req.body;
+    console.log("Name: "+student.name)
+    console.log("Address: "+student.address)
+    console.log("phone home: "+ student.phones[0].home)
+    console.log("phone work: "+ student.phones[0].work)
+    console.log("Carrera: "+ student.studies)
+    let stu = new StudentSchema()
+    console.log(stu)
+        try{
+            stu.name = student.name
+            stu.address = student.address
+            stu.phones = student.phones
+            //stu.phones.work = student.phones.work
+            stu.studies = student.studies
+            await stu.save();
+            return res.status(201).send({message: "Student añadido successfully"}) 
+            } 
+        catch (err) {
+            res.status(500).send(err);
+            console.log(err);
+            }
     }
-}
 
 async function getStudentsOf (req, res){
     // le paso una carrera como parametro y me da los estudiantes de esta carrera
